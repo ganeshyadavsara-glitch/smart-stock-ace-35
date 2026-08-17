@@ -351,10 +351,11 @@ function Dashboard() {
                   <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
                     <div
                       className="h-1.5 rounded-full bg-primary transition-all duration-500"
-                      style={{ width: `${(p.monthlySales / m.fastMoving[0].monthlySales) * 100}%` }}
+                      style={{ width: `${(p.monthlySales / (m.fastMoving[0]?.monthlySales || 1)) * 100}%` }}
                     />
                   </div>
                 </div>
+
                 <span className="text-xs font-semibold tabular-nums text-muted-foreground">
                   {p.monthlySales}/mo
                 </span>
