@@ -109,13 +109,14 @@ function ProductsPage() {
             <DialogContent className="sm:max-w-lg">
               <ProductForm
                 onSubmit={(p) => {
-                  addProduct(p);
+                  addProduct(p as Parameters<typeof addProduct>[0]);
                   setIsAddOpen(false);
                   toast.success("Product added");
                 }}
                 onCancel={() => setIsAddOpen(false)}
               />
             </DialogContent>
+
           </Dialog>
         </>
       }
