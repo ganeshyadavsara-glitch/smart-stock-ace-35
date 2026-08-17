@@ -71,9 +71,10 @@ function ReportsPage() {
                 <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => currency(v)} cursor={{ fill: "var(--color-muted)" }} />
                 <Bar dataKey="value" name="Stock value" radius={[8, 8, 0, 0]} maxBarSize={56}>
                   {m.byCategory.map((c, i) => (
-                    <Cell key={i} fill={categoryColor[c.category]} />
+                    <Cell key={i} fill={categoryColor[c.category as keyof typeof categoryColor]} />
                   ))}
                 </Bar>
+
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
