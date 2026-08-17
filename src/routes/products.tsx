@@ -280,11 +280,12 @@ function ProductForm({
       reorderLevel: 10,
       unitCost: 0,
       price: 0,
-      supplierId: suppliers[0].id,
+      supplierId: suppliers[0]?.id ?? "SUP-01",
       location: "",
       monthlySales: 0,
     },
   );
+
 
   const update = <K extends keyof Product>(key: K, value: Product[K]) => {
     setForm((f) => ({ ...f, [key]: value }));
