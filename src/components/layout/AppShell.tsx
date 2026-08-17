@@ -7,6 +7,8 @@ import {
   Menu,
   Package,
   Search,
+  Settings,
+
   Sparkles,
   Truck,
   BarChart3,
