@@ -25,7 +25,9 @@ const NAV = [
   { to: "/reports", label: "Reports", icon: BarChart3 },
   { to: "/suppliers", label: "Suppliers", icon: Truck },
   { to: "/insights", label: "AI Insights", icon: Sparkles },
+  { to: "/settings", label: "Settings", icon: Settings },
 ] as const;
+
 
 export function AppShell({
   title,

@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as StockRouteImport } from './routes/stock'
 import { Route as SuppliersRouteImport } from './routes/suppliers'
 
@@ -36,6 +37,11 @@ const ReportsRoute = ReportsRouteImport.update({
   path: '/reports',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StockRoute = StockRouteImport.update({
   id: '/stock',
   path: '/stock',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/insights': typeof InsightsRoute
   '/products': typeof ProductsRoute
   '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/stock': typeof StockRoute
   '/suppliers': typeof SuppliersRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/insights': typeof InsightsRoute
   '/products': typeof ProductsRoute
   '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/stock': typeof StockRoute
   '/suppliers': typeof SuppliersRoute
 }
@@ -69,21 +77,36 @@ export interface FileRoutesById {
   '/insights': typeof InsightsRoute
   '/products': typeof ProductsRoute
   '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/stock': typeof StockRoute
   '/suppliers': typeof SuppliersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/insights' | '/products' | '/reports' | '/stock' | '/suppliers'
+    | '/'
+    | '/insights'
+    | '/products'
+    | '/reports'
+    | '/settings'
+    | '/stock'
+    | '/suppliers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/insights' | '/products' | '/reports' | '/stock' | '/suppliers'
+  to:
+    | '/'
+    | '/insights'
+    | '/products'
+    | '/reports'
+    | '/settings'
+    | '/stock'
+    | '/suppliers'
   id:
     | '__root__'
     | '/'
     | '/insights'
     | '/products'
     | '/reports'
+    | '/settings'
     | '/stock'
     | '/suppliers'
   fileRoutesById: FileRoutesById
@@ -93,6 +116,7 @@ export interface RootRouteChildren {
   InsightsRoute: typeof InsightsRoute
   ProductsRoute: typeof ProductsRoute
   ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
   StockRoute: typeof StockRoute
   SuppliersRoute: typeof SuppliersRoute
 }
@@ -127,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stock': {
       id: '/stock'
       path: '/stock'
@@ -149,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsRoute: InsightsRoute,
   ProductsRoute: ProductsRoute,
   ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
   StockRoute: StockRoute,
   SuppliersRoute: SuppliersRoute,
 }
