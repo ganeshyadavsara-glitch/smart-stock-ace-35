@@ -340,7 +340,7 @@ function ProductForm({
         </div>
         <div className="space-y-1.5 sm:col-span-2">
           <Label>Supplier</Label>
-          <Select value={form.supplierId} onValueChange={(v) => update("supplierId", v)}>
+          <Select value={form.supplierId ?? suppliers[0]?.id ?? "SUP-01"} onValueChange={(v) => update("supplierId", v)}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
@@ -352,6 +352,7 @@ function ProductForm({
               ))}
             </SelectContent>
           </Select>
+
         </div>
         <div className="space-y-1.5">
           <Label>Location / bin</Label>
