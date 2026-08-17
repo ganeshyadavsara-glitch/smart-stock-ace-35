@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone, Star, Truck } from "lucide-react";
 import { AppShell } from "@/components/layout/AppShell";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useInventoryMetrics } from "@/lib/inventory-store";
+import { useInventory } from "@/lib/inventory-store";
 import { suppliers as supplierList } from "@/lib/inventory-data";
 
 export const Route = createFileRoute("/suppliers")({
@@ -19,7 +19,8 @@ export const Route = createFileRoute("/suppliers")({
 });
 
 function SuppliersPage() {
-  const { products } = useInventoryMetrics();
+  const { products } = useInventory();
+
 
   return (
     <AppShell
