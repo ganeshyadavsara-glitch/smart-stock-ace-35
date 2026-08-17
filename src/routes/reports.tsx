@@ -89,9 +89,10 @@ function ReportsPage() {
               <PieChart>
                 <Pie data={m.byCategory} dataKey="value" nameKey="category" innerRadius={56} outerRadius={88} paddingAngle={3} stroke="var(--color-card)" strokeWidth={2}>
                   {m.byCategory.map((c, i) => (
-                    <Cell key={i} fill={categoryColor[c.category]} />
+                    <Cell key={i} fill={categoryColor[c.category as keyof typeof categoryColor]} />
                   ))}
                 </Pie>
+
                 <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => currency(v)} />
                 <Legend iconType="circle" wrapperStyle={{ fontSize: 12 }} />
               </PieChart>
