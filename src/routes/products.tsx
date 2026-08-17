@@ -308,7 +308,7 @@ function ProductForm({
         </div>
         <div className="space-y-1.5">
           <Label>Category</Label>
-          <Select value={form.category} onValueChange={(v) => update("category", v as Category)}>
+          <Select value={form.category ?? "Electronics"} onValueChange={(v) => update("category", v as Category)}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
@@ -320,6 +320,7 @@ function ProductForm({
               ))}
             </SelectContent>
           </Select>
+
         </div>
         <div className="space-y-1.5">
           <Label>Stock</Label>
