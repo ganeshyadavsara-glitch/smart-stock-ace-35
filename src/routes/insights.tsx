@@ -139,10 +139,10 @@ function InsightsPage() {
   const overstockCapital = m.overstock.reduce((s, p) => s + p.stock * p.unitCost, 0);
 
   const riskData = [
-    { name: "Out of stock", count: m.outOfStock.length, fill: "var(--color-destructive)" },
-    { name: "Low stock", count: m.lowStock.length, fill: "var(--color-warning)" },
-    { name: "Healthy", count: m.healthy.length, fill: "var(--color-success)" },
-    { name: "Overstock", count: m.overstock.length, fill: "var(--color-info)" },
+    { name: "Out of stock", count: m.outOfStock.length, fill: "var(--destructive)" },
+    { name: "Low stock", count: m.lowStock.length, fill: "var(--warning)" },
+    { name: "Healthy", count: m.healthy.length, fill: "var(--success)" },
+    { name: "Overstock", count: m.overstock.length, fill: "var(--info)" },
   ];
 
   const velocityData = [...m.fastMoving]
@@ -152,7 +152,7 @@ function InsightsPage() {
   const healthColor =
     m.healthScore >= 80 ? "text-success" : m.healthScore >= 60 ? "text-warning-foreground" : "text-destructive";
   const healthFill =
-    m.healthScore >= 80 ? "var(--color-success)" : m.healthScore >= 60 ? "var(--color-warning)" : "var(--color-destructive)";
+    m.healthScore >= 80 ? "var(--success)" : m.healthScore >= 60 ? "var(--warning)" : "var(--destructive)";
 
   const runAnalysis = () => {
     setAnalyzing(true);
@@ -169,7 +169,7 @@ function InsightsPage() {
       <section className="panel relative overflow-hidden p-6 sm:p-8">
         <div
           className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full opacity-25 blur-3xl"
-          style={{ background: "var(--color-primary)" }}
+          style={{ background: "var(--primary)" }}
         />
         <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
@@ -410,7 +410,8 @@ function InsightsPage() {
               <BarChart data={velocityData} margin={{ left: 4, right: 8 }}>
                 <CartesianGrid vertical={false} strokeOpacity={0.15} />
                 <XAxis dataKey="name" tickLine={false} axisLine={false} fontSize={12} />
-                <YAxis tickLine={false} axisLine={false} fontSize={12} />
+                <YAxis yAxisId="left" tickLine={false} axisLine={false} fontSize={12} />
+                <YAxis yAxisId="right" orientation="right" tickLine={false} axisLine={false} fontSize={12} />
                 <Tooltip
                   cursor={{ fillOpacity: 0.06 }}
                   contentStyle={{
@@ -421,8 +422,8 @@ function InsightsPage() {
                   }}
                 />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Bar dataKey="sales" name="Units / month" fill="var(--color-chart-1)" radius={[6, 6, 0, 0]} />
-                <Bar dataKey="cover" name="Days of cover" fill="var(--color-chart-3)" radius={[6, 6, 0, 0]} />
+                <Bar yAxisId="left" dataKey="sales" name="Units / month" fill="var(--color-chart-1)" radius={[6, 6, 0, 0]} />
+                <Bar yAxisId="right" dataKey="cover" name="Days of cover" fill="var(--color-chart-3)" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
