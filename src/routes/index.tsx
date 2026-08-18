@@ -51,10 +51,10 @@ export const Route = createFileRoute("/")({
         content:
           "Live inventory KPIs, stock movement analytics, AI restock recommendations and demand forecasting in one operations dashboard.",
       },
-      { property: "og:title", content: "StockSense AI — Inventory Dashboard" },
+      { property: "og:title", content: "Dashboard — StockSense AI Inventory Intelligence" },
       {
         property: "og:description",
-        content: "Real-time inventory value, stock health and AI-driven restock guidance.",
+        content: "Live inventory KPIs, stock movement analytics, AI restock recommendations and demand forecasting in one operations dashboard.",
       },
     ],
   }),

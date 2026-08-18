@@ -80,21 +80,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "StockSense AI" },
+      { title: "Dashboard — StockSense AI Inventory Intelligence" },
       {
         name: "description",
         content:
-          "AI-powered inventory management with demand forecasting, smart restock recommendations and real-time stock analytics.",
+          "Live inventory KPIs, stock movement analytics, AI restock recommendations and demand forecasting in one operations dashboard.",
       },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "StockSense AI" },
+      { property: "og:title", content: "Dashboard — StockSense AI Inventory Intelligence" },
       {
         property: "og:description",
-        content: "AI-powered inventory management with demand forecasting and smart restock recommendations.",
+        content: "Live inventory KPIs, stock movement analytics, AI restock recommendations and demand forecasting in one operations dashboard.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Dashboard — StockSense AI Inventory Intelligence" },
+      { name: "twitter:description", content: "Live inventory KPIs, stock movement analytics, AI restock recommendations and demand forecasting in one operations dashboard." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/41d7364eddfc5232887c924c3511a56a/id-preview-68a7d801--6eb5fc41-6b75-44c6-b16a-b9b93377e89a.lovable.app-1787025147921.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/41d7364eddfc5232887c924c3511a56a/id-preview-68a7d801--6eb5fc41-6b75-44c6-b16a-b9b93377e89a.lovable.app-1787025147921.png" },
     ],
     links: [
       {
