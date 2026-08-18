@@ -147,7 +147,7 @@ function InsightsPage() {
 
   const velocityData = [...m.fastMoving]
     .slice(0, 5)
-    .map((p) => ({ name: p.sku.split("-").slice(-1)[0], sales: p.monthlySales, cover: daysOfCover(p) }));
+    .map((p) => ({ name: p.name.split(" ").slice(0, 2).join(" "), sales: p.monthlySales, cover: daysOfCover(p) }));
 
   const healthColor =
     m.healthScore >= 80 ? "text-success" : m.healthScore >= 60 ? "text-warning-foreground" : "text-destructive";
@@ -212,8 +212,8 @@ function InsightsPage() {
                   startAngle={90}
                   endAngle={-270}
                 >
-                  <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-                  <RadialBar dataKey="value" background cornerRadius={12} />
+                  <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
+                  <RadialBar dataKey="value" angleAxisId={0} background cornerRadius={12} />
                 </RadialBarChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 grid place-items-center">
